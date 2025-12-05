@@ -28,7 +28,7 @@ jobs:
         run: |
           cd project
           pip install pyinstaller
-          pyinstaller --onefile main.py --name YouTubeBatchAnalyzer
+          pyinstaller --onefile youtube_comment_scraper.py --name YouTubeBatchAnalyzer
 
       - name: Upload EXE
         uses: actions/upload-artifact@v4
