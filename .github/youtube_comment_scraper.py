@@ -31,9 +31,7 @@ import argparse
 # -------------------------
 
 def fetch_comments_via_api(url, api_key):
-    """
-    Placeholder: fetch comments using YouTube Data API.
-    """
+    """Placeholder: fetch comments using YouTube Data API."""
 
     This function performs lazy imports. If the google API client is not installed or the
     API key is not provided, it raises RuntimeError with instructions.
