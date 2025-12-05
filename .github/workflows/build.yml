@@ -1,0 +1,37 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Unzip project
+        run: Expand-Archive -Path YouTube_Batch_Analyzer_project.zip -DestinationPath project
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install requirements
+        run: |
+          cd project
+          pip install -r requirements.txt
+
+      - name: Build EXE (PyInstaller)
+        run: |
+          cd project
+          pip install pyinstaller
+          pyinstaller --onefile main.py --name YouTubeBatchAnalyzer
+
+      - name: Upload EXE
+        uses: actions/upload-artifact@v3
+        with:
+          name: YouTubeBatchAnalyzer
+          path: project/dist/*
