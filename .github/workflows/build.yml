@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Unzip project
         run: Expand-Archive -Path YouTube_Batch_Analyzer_project.zip -DestinationPath project
@@ -31,7 +31,7 @@ jobs:
           pyinstaller --onefile main.py --name YouTubeBatchAnalyzer
 
       - name: Upload EXE
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: YouTubeBatchAnalyzer
           path: project/dist/*
