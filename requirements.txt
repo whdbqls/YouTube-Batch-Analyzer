@@ -1,0 +1,8 @@
+pyqt5
+pandas
+selenium
+google-api-python-client
+google-auth
+pytube
+pyinstaller
+webdriver-manager
